@@ -16,6 +16,7 @@
     {{ product.name }} | {{ product.price | currency:'USD':true:'1.2-2'}} * {{ product.amount }} = {{ product.price * product.amount
  | currency:'USD':true:'1.2-2'}}
     <button (click)='appendProduct()' *ngIf='!isEdit'>加入購物車</button>
+    <button (click)='edit()' *ngIf='isEdit'>編輯</button>
   </div>
 
 </div>

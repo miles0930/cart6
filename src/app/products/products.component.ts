@@ -18,5 +18,11 @@ export class ProductsComponent implements OnInit {
   private clearProducts() {
     this.cartService.clearProducts();
   }
+  private undo() {
+    this.cartService.undo();
+  }
+  private remove(id) {
+    this.cartService.remove(id);
+  }
 
 }

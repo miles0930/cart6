@@ -12,25 +12,30 @@ import { CartService } from '../cart.service'
 export class ProductformComponent implements OnInit {
 
   private product: Product;
-  private isEdit: boolean;
+  private isEdit: number;
 
   constructor(private router: Router, private route: ActivatedRoute, private location: Location, private cartService: CartService) { }
 
   ngOnInit() {
     if (this.route.snapshot.url[0].path == 'edit') {
-      var id = +this.route.snapshot.paramMap.get('index') - 1;
-      this.product = this.cartService.getProduct(id);
-      this.isEdit = true;
+      var index = +this.route.snapshot.paramMap.get('index');
+      var oldProduct = this.cartService.getProduct(index-1);
+      this.product = new Product(oldProduct.name, oldProduct.price, oldProduct.amount);
+      this.isEdit = index;
     }else {
       this.product = new Product('', 1, 1)
-      this.isEdit = false;
+      this.isEdit = 0;
     }
   }
 
   private appendProduct() {
     this.cartService.appendProduct(this.product);
     this.product = new Product('', 1,1);
-    this.router.navigate(['/'])
+    this.router.navigate(['/']);
+  }
+  private edit() {
+    this.cartService.edit(this.isEdit-1, this.product);
+    this.router.navigate(['/']);
   }
 
 }
