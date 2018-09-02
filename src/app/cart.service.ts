@@ -11,6 +11,12 @@ export class CartService {
   ];
   constructor() { }
 
+  public clearProducts() {
+    if (this.products.length > 0) {
+      this.products.length = 0;
+    }
+  }
+
   public getProducts() {
     return this.products;
   }

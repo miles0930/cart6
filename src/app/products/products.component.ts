@@ -15,5 +15,8 @@ export class ProductsComponent implements OnInit {
   private getProducts() {
     return this.cartService.getProducts();
   }
+  private clearProducts() {
+    this.cartService.clearProducts();
+  }
 
 }

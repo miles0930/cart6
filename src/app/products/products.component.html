@@ -1,7 +1,9 @@
-<a routerLink="/add">+</a>
+<button routerLink='/add' type='button'>+</button> |
+<button (click)='clearProducts()' type='button'>clear</button> |
+<button type='button'>undo</button>
 <br>
 <ul>
-<li *ngFor="let product of getProducts(); let i = index" routerLink="/edit/{{ i+1 }}">
+<li *ngFor='let product of getProducts(); let i = index' routerLink='/edit/{{ i+1 }}'>
     {{ i+1 }}, {{ product.name }}, {{ product.price }}, {{ product.amount }}
   </li>
 </ul>
