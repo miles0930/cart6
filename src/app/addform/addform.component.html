@@ -1,10 +1,19 @@
-<label for="product-name">產品名稱: </label>
-<input type="text" name="product-name">
-
-<label for="product-price">產品價格: </label>
-<input type="number" name="product-price">
-
-<label for="product-amount">購買數量: </label>
-<input type="number" name="product-amount">
-
-<button>加入購物車</button>
+<a routerLink="/">back</a>
+<br>
+<div>
+  <label for='product-name'>產品名稱: </label>
+  <input type='text' name='product-name' [(ngModel)]='product.name'>
+  
+  <label for='product-price'>產品價格: </label>
+  <input type='number' name='product-price' [(ngModel)]='product.price'>
+  
+  <label for='product-amount'>購買數量: </label>
+  <input type='number' name='product-amount' [(ngModel)]='product.amount'>
+  
+  <button (click)='appendProduct()' routerLink="/">加入購物車</button>
+  
+  <div class="remind" *ngIf="product.name != ''">
+    {{ product.name }} | {{ product.price | currency:'USD':true:'1.2-2'}} * {{ product.amount }} = {{ product.price * product.amount
+    | currency:'USD':true:'1.2-2'}}
+  </div>
+</div>

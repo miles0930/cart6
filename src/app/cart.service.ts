@@ -14,4 +14,8 @@ export class CartService {
   public getProducts() {
     return this.products;
   }
+
+  public appendProduct(newProduct:Product) {
+    this.products.push(newProduct);
+  }
 }
