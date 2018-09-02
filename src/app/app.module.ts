@@ -4,14 +4,14 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { ProductsComponent } from './products/products.component';
-import { addformComponent } from './addform/addform.component';
+import { ProductformComponent } from './productform/productform.component';
 import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductsComponent,
-    addformComponent
+    ProductformComponent
   ],
   imports: [
     BrowserModule,

@@ -15,6 +15,10 @@ export class CartService {
     return this.products;
   }
 
+  public getProduct(index: number) {
+    return this.products[index];
+  }
+
   public appendProduct(newProduct:Product) {
     this.products.push(newProduct);
   }

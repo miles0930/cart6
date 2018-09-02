@@ -10,9 +10,10 @@
   <label for='product-amount'>購買數量: </label>
   <input type='number' name='product-amount' [(ngModel)]='product.amount'>
   
-  <button (click)='appendProduct()' routerLink="/">加入購物車</button>
+  <button (click)='appendProduct()' *ngIf='!isEdit'>加入購物車</button>
+  <button routerLink="/" *ngIf='isEdit'>編輯</button>
   
-  <div class="remind" *ngIf="product.name != ''">
+  <div>
     {{ product.name }} | {{ product.price | currency:'USD':true:'1.2-2'}} * {{ product.amount }} = {{ product.price * product.amount
     | currency:'USD':true:'1.2-2'}}
   </div>
