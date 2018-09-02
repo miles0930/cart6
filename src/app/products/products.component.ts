@@ -24,5 +24,18 @@ export class ProductsComponent implements OnInit {
   private remove(id) {
     this.cartService.remove(id);
   }
+  private getSum() {
+    var sum: number = 0;
+    for (var product of this.cartService.getProducts()) {
+      sum = sum + product.price * product.amount;
+    }
+    return sum;
+  }
+  private countTax() {
+    return this.getSum() - this.getSum() * 0.05;
+  }
 
+  private countSum() {
+    return this.getSum() + this.countTax();
+  }
 }
