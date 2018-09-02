@@ -11,8 +11,8 @@ import { CartService } from '../cart.service'
 })
 export class ProductformComponent implements OnInit {
 
-  private product: Product;
-  private isEdit: number;
+  product: Product;
+  isEdit: number;
 
   constructor(private router: Router, private route: ActivatedRoute, private location: Location, private cartService: CartService) { }
 
@@ -28,12 +28,12 @@ export class ProductformComponent implements OnInit {
     }
   }
 
-  private appendProduct() {
+  appendProduct() {
     this.cartService.appendProduct(this.product);
     this.product = new Product('', 1,1);
     this.router.navigate(['/']);
   }
-  private edit() {
+  edit() {
     this.cartService.edit(this.isEdit-1, this.product);
     this.router.navigate(['/']);
   }

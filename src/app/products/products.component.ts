@@ -12,30 +12,30 @@ export class ProductsComponent implements OnInit {
   ngOnInit() {
   }
 
-  private getProducts() {
+  getProducts() {
     return this.cartService.getProducts();
   }
-  private clearProducts() {
+  clearProducts() {
     this.cartService.clearProducts();
   }
-  private undo() {
+  undo() {
     this.cartService.undo();
   }
-  private remove(id) {
+  remove(id) {
     this.cartService.remove(id);
   }
-  private getSum() {
+  getSum() {
     var sum: number = 0;
     for (var product of this.cartService.getProducts()) {
       sum = sum + product.price * product.amount;
     }
     return sum;
   }
-  private countTax() {
+  countTax() {
     return this.getSum() - this.getSum() * 0.05;
   }
 
-  private countSum() {
+  countSum() {
     return this.getSum() + this.countTax();
   }
 }
