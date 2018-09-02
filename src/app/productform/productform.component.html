@@ -1,22 +1,28 @@
-<button routerLink="/" type='button'>back</button>
+<div class='left'>
+  <button routerLink='/' type='button'>Back</button>
+</div>
+<div class='right'>
+  <button (click)='appendProduct()' *ngIf='!isEdit'>加入購物車</button>
+  <button (click)='edit()' *ngIf='isEdit'>編輯完成</button>
+</div>
+<div class='clear'></div>
 <br>
-<br>
-<div>
-  <label for='product-name'>產品名稱: </label>
-  <input type='text' name='product-name' [(ngModel)]='product.name'>
-  
-  <label for='product-price'>產品價格: </label>
-  <input type='number' name='product-price' [(ngModel)]='product.price'>
-  
-  <label for='product-amount'>購買數量: </label>
-  <input type='number' name='product-amount' [(ngModel)]='product.amount'>
-  
-<br><br>
-  <div>
-    {{ product.name }} | {{ product.price | currency:'USD':true:'1.2-2'}} * {{ product.amount }} = {{ product.price * product.amount
- | currency:'USD':true:'1.2-2'}}
-    <button (click)='appendProduct()' *ngIf='!isEdit'>加入購物車</button>
-    <button (click)='edit()' *ngIf='isEdit'>編輯</button>
+<div class='form'>
+  <div class='item'>
+    <label for='product-name'>產品名稱: </label>
+    <input type='text' name='product-name' [(ngModel)]='product.name'>
   </div>
+  <div class='item'>
+    <label for='product-price'>產品價格: </label>
+    <input type='number' name='product-price' [(ngModel)]='product.price'>
+  </div>
+  <div class='item'>
+    <label for='product-amount'>購買數量: </label>
+    <input type='number' name='product-amount' [(ngModel)]='product.amount'>
+  </div>
+</div>
 
+<div class='bottom'>
+  {{ product.name }} | {{ product.price | currency:'USD':true:'1.2-2'}} * {{ product.amount }} = {{ product.price * product.amount
+| currency:'USD':true:'1.2-2'}}
 </div>

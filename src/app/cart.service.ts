@@ -6,8 +6,8 @@ import { Product } from './product';
 })
 export class CartService {
   private products: Array<Product> = [
-    new Product('a', 5, 10),
-    new Product('b', 1, 15)
+    new Product('a', 65536, 12),    
+    new Product('紅龜粿', 120, 7)
   ];
   private stepLogs: any[] = [];
   constructor() { }
@@ -24,8 +24,8 @@ export class CartService {
   }
 
   public clearProducts() {
-    this.writeLog();
     if (this.products.length > 0) {
+      this.writeLog();
       this.products.length = 0;
     }
   }

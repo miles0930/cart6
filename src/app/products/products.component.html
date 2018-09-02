@@ -1,15 +1,43 @@
-<button routerLink='/add' type='button'>+</button> |
-<button (click)='clearProducts()' type='button'>clear</button> |
-<button (click)='undo()' type='button'>undo</button>
-<br>
-<ul>
-  <li *ngFor='let product of getProducts(); let i = index'>
-    <span routerLink='/edit/{{ i+1 }}'>
- {{ i+1 }}, {{ product.name }}, 單價: {{ product.price | number:'1.0-2' }}, 數量: {{ product.amount | number:'1.0-2' }}, 小計: {{ product.price
-* product.amount | number:'1.0-2' }}
-    </span>
-    <button (click)='remove(i)'>×</button>
-  </li>
-</ul>
-<div>稅金(5%) {{ countTax() | currency:'USD':true:'1.2-2' }}</div>
-<div>總額 {{ countSum() | currency:'USD':true:'1.2-2' }}</div>
+<div class='left'>
+  <button routerLink='/add' type='button'>+</button>
+</div>
+<div class='right'>
+  <button (click)='clearProducts()' type='button'>Clear</button> 
+  <button (click)='undo()' type='button'>Undo</button>
+</div>
+<div class='clear'></div>
+<table rules='rows'>
+  <thead>
+    <tr>
+      <th width='6%'>#</th>
+      <th width='25%'>產品名稱</th>
+      <th width='25%'>產品價格</th>
+      <th width='10%'>購買數量</th>
+      <th width='28%'>小計</th>
+      <th width='6%'>刪除</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor='let product of getProducts(); let i = index'>
+      <td routerLink='/edit/{{ i+1 }}'>{{ i+1 }}</td>
+      <td routerLink='/edit/{{ i+1 }}'>{{ product.name }}</td>
+      <td routerLink='/edit/{{ i+1 }}'>{{ product.price | number:'1.0-2' }}</td>
+      <td routerLink='/edit/{{ i+1 }}'>{{ product.amount | number:'1.0-2' }}</td>
+      <td routerLink='/edit/{{ i+1 }}'>{{ product.price * product.amount | number:'1.0-2' }}</td>
+      <td>
+        <button (click)='remove(i)'>×</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class='right' style='text-align: right; padding: .5em 2em;font-size: 1.1em;'>
+  <p>
+    稅金(5%) {{ countTax() | currency:'USD':true:'1.2-2' }}
+  </p>
+  <p>
+    總額 {{ countSum() | currency:'USD':true:'1.2-2' }}
+  </p>
+
+</div>
+<div class='clear'></div>
