@@ -46,6 +46,12 @@ button:hover {
     background: rgba(0, 0, 0, .2);
 }
 
+button:disabled {
+    background: rgba(0, 0, 0, .2);
+    color: #888;
+    cursor: default;
+}
+
 .center {
     text-align: center;
 }

@@ -12,21 +12,9 @@ export class ProductsComponent implements OnInit {
   ngOnInit() {
   }
 
-  getProducts() {
-    return this.cartService.getProducts();
-  }
-  clearProducts() {
-    this.cartService.clearProducts();
-  }
-  undo() {
-    this.cartService.undo();
-  }
-  remove(id) {
-    this.cartService.remove(id);
-  }
   getSum() {
-    var sum: number = 0;
-    for (var product of this.cartService.getProducts()) {
+    let sum = 0;
+    for (const product of this.cartService.products) {
       sum = sum + product.price * product.amount;
     }
     return sum;
